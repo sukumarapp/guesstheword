@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Appreciation Party!</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <section class="landing-page" id="landingPage" aria-label="Join game">
+        <div class="landing-card">
+          <h1 class="welcome-heading">Welcome to CIBC Employee Appreciation Week</h1>
+          <p class="game-subtitle">Guess the Word or Phrase</p>
+          <p class="developer">Developed by Sukumar</p>
+          <div class="join-strip">
+            <input id="nameInput" maxlength="22" autocomplete="nickname" placeholder="Enter your name">
+            <button id="joinButton">Join</button>
+          </div>
+          <p id="joinMessage" class="message">Up to 300 players can play together online.</p>
+        </div>
+      </section>
+
+      <section class="app-shell" id="gamePage" aria-label="Game page" hidden>
+        <section class="game-panel" aria-label="Game board">
+          <div class="topbar">
+            <div>
+              <p class="eyebrow game-title">Guess the Word or Phrase</p>
+              <h2 id="roundTitle">Round 1</h2>
+            </div>
+            <div class="room-meter" aria-live="polite">
+              <span id="onlineCount">0</span><small>/ 300 online</small>
+            </div>
+          </div>
+
+          <div class="word-card">
+            <div id="word" class="word" aria-live="polite"></div>
+            <p id="message" class="message">Waiting for the next guess.</p>
+          </div>
+
+          <div id="keyboard" class="keyboard" aria-label="Letter keyboard"></div>
+
+          <div class="stage-wrap">
+            <div class="sky">
+              <div class="cloud cloud-one"></div>
+              <div class="cloud cloud-two"></div>
+              <div class="garden-animation">
+                <div class="flower figure" id="figure">
+                  <span class="stem"></span>
+                  <span class="leaf left"></span>
+                  <span class="leaf right"></span>
+                  <span class="petal petal-one"></span>
+                  <span class="petal petal-two"></span>
+                  <span class="petal petal-three"></span>
+                  <span class="petal petal-four"></span>
+                  <span class="petal petal-five"></span>
+                  <span class="center"></span>
+                </div>
+              </div>
+              <div class="lanterns" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <span id="roundInfo"></span>
+          </div>
+
+          <div class="host-tools" id="hostTools" hidden>
+            <div>
+              <p class="eyebrow">Host controls</p>
+              <strong>Choose the next word</strong>
+            </div>
+            <div class="host-entry">
+              <input id="hostWordInput" maxlength="32" autocomplete="off" placeholder="Secret word or phrase">
+              <button id="customRoundButton">Start custom round</button>
+              <button id="resetButton" class="secondary">Reset game</button>
+              <button id="musicButton" class="secondary">Music off</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="side-panel" aria-label="Players and activity">
+          <div class="score-head">
+            <h2>Players Joined</h2>
+            <span id="capacity">Room open</span>
+          </div>
+          <button id="logoutButton" class="secondary logout-button">Log out</button>
+          <p id="hostNotice" class="host-notice">Join to become host.</p>
+          <ol id="players" class="players"></ol>
+          <div class="activity">
+            <h2>Last guess</h2>
+            <p id="activityText">No guesses yet.</p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <audio id="backgroundMusic" src="/music/background.mp3" loop preload="auto"></audio>
+    <script src="/client.js"></script>
+  </body>
+</html>
